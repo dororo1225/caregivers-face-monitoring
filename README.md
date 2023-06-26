@@ -84,40 +84,40 @@ Although we placed numbers on the file names of the R scripts, these scripts can
 | HandLooking      | quantitative (binary)     | Caregiver's hand looking state (hand looking = 1; no hand looking = 0; otherwise = NA)   |
 
 
-
 - data_recall.csv
-  - This csv file is used with 12_OtherAnalyses.R.
+  - This csv file is used with 01_DetectorPerformance.R.
 
-| Column Name     | Variable                | Explanation                                                                   |
-| ----            | ----                    |   ----                                                                        |
-| image_name      |qualitative              | Experiment (‘Exp1’, ‘Exp2’, ‘Exp3’, ‘Exp4’, or ‘Exp5’)                        |
-| NameID          |qualitative              | Participant ID                                                                |
-| AgeinMonths     |quantitative (continuous)| Infant's looking time to the first aggressive interaction in the movie phase  |
-| Coder           |quantitative (continuous)| Infant's looking time to the second aggressive interaction in the movie phase |
-| Unknown         |quantitative (continuous)| Infant's looking time to the third aggressive interaction in the movie phase  |
-| Face            |quantitative (continuous)| Infant's looking time to the third aggressive interaction in the movie phase  |
-
+| Column Name   | Variable                  | Explanation                                                                       |
+| ------------- | ------------------------- | --------------------------------------------------------------------------------- |
+| image_name    | qualitative               | Name of the image                                                                 |
+| NameID        | qualitative               | Participant ID (A-H)                                                              |
+| AgeinMonths   | quantitative (discrete)   | Infants' age in months                                                            |
+| Coder         | qualitative               | Coder ID (1-5)                                                                    |
+| Unknown       | quantitative (binary)     | Whether the coder could not make a decision about the face in the view (could not make a decision = 1; otherwise = 0) |
+| Face          | quantitative (binary)     | Whether infants' faces were in the caregivers' field of view (presence = 1; absence = 0)   |
 
 
 ## Software & Package Versions
-- RStudio: 1.4.1717
-- R: 4.0.3
-- Stan: 2.26.1
-- tidyverse: 1.3.1
-- brms: 2.15.0
-- rstan: 2.26.2
-- cmdstanr: 0.3.0
-- tidybayes: 3.0.0
-- broom.mixed: 0.2.7
-- BayesFactor: 0.9.12.4.3
-- bayestestR: 0.11.5
-- effectsize: 0.5
-- broom.mixed: 0.2.7
+- RStudio: 2023.06.0+421
+- R: 4.2.1 
+- Stan: 2.31.0
+- tidyverse: 1.3.2
+- brms: 2.17.0
+- rstan: 2.26.13
+- cmdstanr: 0.5.3
+- tidybayes: 3.0.2
+- lme4: 1.1.29
+- broom.mixed: 0.2.9.4
+- scales: 1.2.0
+- modelr: 0.1.8
+- performance: 0.10.2 
+- bayestestR: 0.13.0
+- modelbased: 0.8.6
+- see : 0.7.2
 - ggpubr: 0.4.0
-- cowplot: 1.1.1
-- ggrepl: 0.9.1
+- ggcorrplot: 0.1.4
 - here: 1.0.1
-
+- knitr: 1.39
 
 ## The Author of this README File
 - [Authour Masked](https://github.com/dororo1225)
