@@ -110,7 +110,7 @@ df_stan %>%
   mutate(AgeinMonths = AgeinMonths_raw, .keep = "unused") -> df_predict
 
 # Visualization
-## Figure 5
+## Figure 3
 df_par %>% 
   mutate(NameID = fct_rev(NameID))%>%
   ggplot(aes(y = NameID, x = .value, xmin = .lower, xmax = .upper, color = NameID)) +
@@ -156,11 +156,11 @@ df_stan %>%
         strip.text = element_text(size = 15, face = "bold")) -> gp2
 print(gp2)
 
-ggarrange(gp1, gp2, widths = c(1, 2)) #%>% 
-  ggexport(filename = here("Figures", "Figure5.jpg"), width = 4000, height = 1500, res = 300)
+ggarrange(gp1, gp2, widths = c(1, 2)) %>% 
+  ggexport(filename = here("Figures", "Figure3.jpg"), width = 4000, height = 1500, res = 300)
 
 
-## Figure 6a
+## Figure 4a
 fit %>% 
   gather_draws(`b_Intercept`, `b_AgeinMonths`, `b_Distance`, `b_Centering`, `b_Saliency_face`, `b_FaceDev_pitch`, `b_FaceDev_yaw`, `b_FaceDev_roll`, `b_GazeDirectionDirected`, `b_InfantPostureSitting`, `b_InfantPostureUpright`, `b_MotherPostureUpright`) %>% 
   median_hdi(.width = c(.95, .66)) -> df_fixed
@@ -200,5 +200,5 @@ df_fixed %>%
         strip.text = element_text(size = 15, face = "bold")) -> gp
 print(gp)
 
-## Save data for Figure 6
+## Save data for Figure 4
 write_csv(df_fixed, here("Results", "Result_facelooking_OD.csv"))

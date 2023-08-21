@@ -127,6 +127,6 @@ df_stan %>%
         legend.text = element_text(size = 12)) -> gp2
 print(gp2)
 
-## Visualization (Figure 9)
+## Visualization (Figure 7)
 ggarrange(gp1, gp2, widths = c(1, 2)) %>% 
-  ggexport(filename = here("Figures", "Figure9.jpg"), width = 4000, height = 1500, res = 300)
+  ggexport(filename = here("Figures", "Figure7.jpg"), width = 4000, height = 1500, res = 300)

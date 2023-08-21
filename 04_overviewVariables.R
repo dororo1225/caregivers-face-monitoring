@@ -9,14 +9,12 @@ library(broom.mixed)
 library(modelbased)
 library(ggcorrplot)
 
-cols <- c(viridis_pal()(8)[8:1], "black") # color setting for visualizaion
-
 # read Data
 here("Data", "data_facelooking.csv") %>%  
   read_csv(col_types = "cddcdddddddddddddddcccdddd") -> df
 nrow(df)
 
-# Developmental changes in dyads' postures and infants' gaze direction  (Figure 3)
+# Developmental changes in dyads' postures and infants' gaze direction  (Figure S4)
 ## Infant posture
 df %>% 
   group_by(NameID, AgeinMonths, InfantPosture) %>% 
@@ -110,7 +108,7 @@ df_gaze %>%
         legend.text = element_text(size = 12)) -> gp3
 
 ggarrange(gp1, gp2, gp3, ncol = 1) %>% 
-  ggexport(filename = here("Figures", "Figure3.jpg"), width = 4500, height = 3600, res = 300)
+  ggexport(filename = here("Figures", "FigureS4.jpg"), width = 4500, height = 3600, res = 300)
 
 # Summary Statistics (Overall)
 ## continuos variables
@@ -381,6 +379,6 @@ pd(fit, method = "direct", null = 0)
 ### Multiple comparison
 estimate_contrasts(fit, contrast = "name")
 
-# Figure 4
+# Figure S5
 ggarrange(gp1, gp2, widths = c(3, 2), align = "h") %>% 
-  ggexport(filename = here("Figures", "Figure4.jpg"), width = 3500, height = 2000, res = 300)
+  ggexport(filename = here("Figures", "FigureS5.jpg"), width = 3500, height = 2000, res = 300)

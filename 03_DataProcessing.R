@@ -43,8 +43,7 @@ df_hit %>%
   replace_na(list(MotherPosture = "Unknown")) %>% 
   count(NameID, AgeinMonths, MotherPosture) %>% 
   add_count(NameID, AgeinMonths, wt = n, name = "nn") %>%
-  mutate(prop = n/nn,
-         MotherPosture = fct_rev(MotherPosture)) %>% 
+  mutate(prop = n/nn) %>% 
   ggplot(aes(x = AgeinMonths, y = prop, fill = MotherPosture)) +
   geom_bar(stat = "identity", position = "stack") +
   facet_wrap(~NameID, ncol = 4) +

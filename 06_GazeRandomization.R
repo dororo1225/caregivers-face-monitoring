@@ -186,7 +186,7 @@ print(gp2)
 
 # Figure 6
 ggarrange(gp1, gp2, widths = c(3, 4)) %>% 
-  ggexport(filename = here("Figures", "Figure6.jpg"), width = 4000, height = 1500, res = 300)
+  ggexport(filename = here("Figures", "Figure4.jpg"), width = 4000, height = 1500, res = 300)
 
 # Supplementary Table S10
 df_RD %>% 

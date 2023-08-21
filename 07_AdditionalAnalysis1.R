@@ -81,9 +81,9 @@ df_coord %>%
         strip.text = element_text(size = 15, face = "bold")) -> gp2
 print(gp2)
 
-### Figure 7
+### Figure 5
 ggarrange(gp1, gp2, ncol = 1, heights = c(4, 3)) %>% 
-  ggexport(filename = here("Figures", "Figure7.jpg"), width = 1920 * 1.2, height = (1080/4)*7 *1.2, res = 300)
+  ggexport(filename = here("Figures", "Figure5.jpg"), width = 1920 * 1.2, height = (1080/4)*7 *1.2, res = 300)
 
 ### x-coordinates
 #### MCMC sampling

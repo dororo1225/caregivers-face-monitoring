@@ -34,14 +34,14 @@ fit_pitch <- brm(Pitch ~ 1 + AgeinMonths + (1 + AgeinMonths | NameID),
                  control = list(adapt_delta = 0.99, max_treedepth = 15))
 summary(fit_pitch, robust = TRUE)
 
-### Parameter estimates (Table 5)
+### Parameter estimates (Table S14)
 tidy(fit_pitch, robust = TRUE, conf.method = "HPDinterval") %>% 
   kable()
 
 ### Probability of direction
 pd(fit_pitch, method = "direct", null = 0)
 
-### effect of age (group-level & individual-level: Supplementary Table S14)
+### effect of age (group-level & individual-level: Supplementary Table S15)
 fit_pitch %>%
   gather_draws(b_AgeinMonths) %>%
   median_hdi(.width = c(.95, .66)) %>% 
@@ -62,7 +62,7 @@ df_par %>%
   filter(.width == 0.95) %>% 
   kable()
 
-### Figure 10a
+### Figure 8a
 df %>% 
   data_grid(AgeinMonths = seq_range(AgeinMonths, n = 12)) %>% 
   add_epred_draws(fit_pitch, re_formula = NA) %>% 
@@ -116,14 +116,14 @@ fit_yaw <- brm(Yaw ~ 1 + AgeinMonths + (1 + AgeinMonths | NameID),
                control = list(adapt_delta = 0.99, max_treedepth = 15))
 summary(fit_yaw, robust = TRUE)
 
-### Parameter estimates (Table 5)
+### Parameter estimates (Table S14)
 tidy(fit_yaw, robust = TRUE, conf.method = "HPDinterval") %>% 
   kable()
 
 ### Probability of direction
 pd(fit_yaw, method = "direct", null = 0)
 
-### effect of age (group-level & individual-level: Supplementary Table S15)
+### effect of age (group-level & individual-level: Supplementary Table S16)
 fit_yaw %>%
   gather_draws(b_AgeinMonths) %>%
   median_hdi(.width = c(.95, .66)) %>% 
@@ -144,7 +144,7 @@ df_par %>%
   filter(.width == 0.95) %>% 
   kable()
 
-### Figure 10b
+### Figure 8b
 df %>% 
   data_grid(AgeinMonths = seq_range(AgeinMonths, n = 12)) %>% 
   add_epred_draws(fit_yaw, re_formula = NA) %>% 
@@ -198,14 +198,14 @@ fit_roll <- brm(Roll ~ 1 + AgeinMonths + (1 + AgeinMonths | NameID),
                 control = list(adapt_delta = 0.999, max_treedepth = 15))
 summary(fit_roll, robust = TRUE)
 
-### Parameter estimates (Table 5)
+### Parameter estimates (Table S14)
 tidy(fit_roll, robust = TRUE, conf.method = "HPDinterval") %>% 
   kable()
 
 ### Probability of direction
 pd(fit_roll, method = "direct", null = 0)
 
-### effect of age (group-level & individual-level: Supplementary Table S16)
+### effect of age (group-level & individual-level: Supplementary Table S17)
 fit_roll %>%
   gather_draws(b_AgeinMonths) %>%
   median_hdi(.width = c(.95, .66)) %>% 
@@ -226,7 +226,7 @@ df_par %>%
   filter(.width == 0.95) %>% 
   kable()
 
-### Figure 10c
+### Figure 8c
 df %>% 
   data_grid(AgeinMonths = seq_range(AgeinMonths, n = 12)) %>% 
   add_epred_draws(fit_roll, re_formula = NA) %>% 
@@ -266,7 +266,7 @@ df_posterior_fit_roll_global %>%
         legend.text = element_text(size = 12)) -> gp_roll
 print(gp_roll)
 
-# Figure10
+# Figure8
 gp_pitch +
   labs(tag = "a") -> g1
 
@@ -277,4 +277,4 @@ gp_roll +
   labs(tag = "c") -> g3
 
 ggarrange(g1, g2, g3, ncol = 1, common.legend = TRUE, legend = "right") %>%
-  ggexport(filename =  here("Figures", "Figure10.jpg"), width = 2000, height = 3000, res = 300)
+  ggexport(filename =  here("Figures", "Figure8.jpg"), width = 2000, height = 3000, res = 300)
