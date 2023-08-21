@@ -86,10 +86,10 @@ df_posterior_fit_pitch_global %>%
   geom_ribbon(aes(ymax = .upper, ymin = .lower), alpha = 0.25) +
   geom_pointinterval(data = df_pitch_obs,
                      aes(y = Mean, ymax = Mean + SE, ymin = Mean - SE, color = NameID),
-                     position = position_jitter(seed = 1234, height = 0, width = 0.1), size = 2, point_size = 3) +
+                     position = position_jitter(seed = 1234, height = 0, width = 0.1), alpha = 0.3, size = 2, point_size = 3) +
   geom_line(aes(y = .epred), linewidth = 2) +
   scale_color_viridis_d() +
-  scale_x_continuous(breaks = seq(10, 15.5, by = 0.5)) +
+  scale_x_continuous(breaks = seq(10, 15.5, by = 1)) +
   labs(x = "Age in months", y = "Mean pitch (degree)",
        color = "Pair") +
   theme_bw() +
@@ -168,10 +168,10 @@ df_posterior_fit_yaw_global %>%
   geom_ribbon(aes(ymax = .upper, ymin = .lower), alpha = 0.25) +
   geom_pointinterval(data = df_yaw_obs,
                      aes(y = Mean, ymax = Mean + SE, ymin = Mean - SE, color = NameID),
-                     position = position_jitter(seed = 1234, height = 0, width = 0.1), size = 2, point_size = 3) +
+                     position = position_jitter(seed = 1234, height = 0, width = 0.1), alpha = 0.3, size = 2, point_size = 3) +
   geom_line(aes(y = .epred), linewidth = 2) +
   scale_color_viridis_d() +
-  scale_x_continuous(breaks = seq(10, 15.5, by = 0.5)) +
+  scale_x_continuous(breaks = seq(10, 15.5, by = 1)) +
   labs(x = "Age in months", y = "Mean yaw (degree)",
        color = "Pair") +
   theme_bw() +
@@ -250,10 +250,10 @@ df_posterior_fit_roll_global %>%
   geom_ribbon(aes(ymax = .upper, ymin = .lower), alpha = 0.25) +
   geom_pointinterval(data = df_roll_obs,
                      aes(y = Mean, ymax = Mean + SE, ymin = Mean - SE, color = NameID),
-                     position = position_jitter(seed = 1234, height = 0, width = 0.1), size = 2, point_size = 3) +
+                     position = position_jitter(seed = 1234, height = 0, width = 0.1), alpha = 0.3, size = 2, point_size = 3) +
   geom_line(aes(y = .epred), linewidth = 2) +
   scale_color_viridis_d() +
-  scale_x_continuous(breaks = seq(10, 15.5, by = 0.5)) +
+  scale_x_continuous(breaks = seq(10, 15.5, by = 1)) +
   labs(x = "Age in months", y = "Mean roll (degree)",
        color = "Pair") +
   theme_bw() +
@@ -276,5 +276,5 @@ gp_yaw +
 gp_roll +
   labs(tag = "c") -> g3
 
-ggarrange(g1, g2, g3, ncol = 1, common.legend = TRUE, legend = "right") %>%
-  ggexport(filename =  here("Figures", "Figure8.jpg"), width = 2000, height = 3000, res = 300)
+ggarrange(g1, g2, g3, ncol = 3, common.legend = TRUE, legend = "right") %>%
+  ggexport(filename =  here("Figures", "Figure8.jpg"), width = 4000, height = 1200, res = 300)
