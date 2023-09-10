@@ -20,14 +20,13 @@ A simple folder structure is shown below:
   - Figure3.jpg
   - Figure4.jpg
   - Figure5.jpg
-  - Figure6.jpg
   - Figure7.jpg
   - Figure8.jpg
-  - Figure9.jpg
-  - Figure10.jpg
   - FigureS1.jpg
   - FigureS2.jpg
   - FigureS3.jpg
+  - FigureS4.jpg
+  - FigureS5.jpg
 - MCMCSamples
 - model
   - model.stan
